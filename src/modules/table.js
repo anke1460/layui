@@ -816,7 +816,7 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
           if(item3.colGroup) return;
 
           //td内容
-          var td = ['<td data-field="'+ field +'" data-key="'+ key +'" '+ function(){ //追加各种属性
+          var td = ['<td data-field="'+ field +'" data-key="'+ key + '" data-index="'+ item1['_id'] + '" '+ function(){ //追加各种属性
             var attr = [];
             if(item3.edit) attr.push('data-edit="'+ item3.edit +'"'); //是否允许单元格编辑
             if(item3.align) attr.push('align="'+ item3.align +'"'); //对齐方式
