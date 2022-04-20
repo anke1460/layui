@@ -113,9 +113,9 @@ var layer = {
 
     if(!options.extend) return this;
 
-    isLayui
-      ? layui.addcss('modules/layer/' + options.extend)
-    : ready.link('theme/' + options.extend);
+    // isLayui
+    //   ? layui.addcss('modules/layer/' + options.extend)
+    // : ready.link('theme/' + options.extend);
 
     return this;
   },
