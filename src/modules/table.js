@@ -86,9 +86,11 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
     }() : content;
     if (!item3.templet && omit == undefined) {
       var str = str.toString();
-      var strIndex = str.indexOf('.');
-      if (strIndex > -1) {
-        str = str.substring(0, strIndex + (layui.decimals_length || 6));
+      if (isNaN(str) == false && options.decimals_length) {
+        var strIndex = str.indexOf('.');
+        if (strIndex > -1) {
+          str = str.substring(0, strIndex + options.decimals_length +1);
+        }
       }
     }
 
