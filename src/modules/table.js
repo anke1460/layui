@@ -90,6 +90,10 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
         var strIndex = str.indexOf('.');
         if (strIndex > -1) {
           str = str.substring(0, strIndex + options.decimals_length +1);
+          var zero = new Array(options.decimals_length +1).join("0")
+          if (str == "0."+ zero) {
+            str = "<0." + (new Array(options.decimals_length).join("0")) + "1"
+          }
         }
       }
     }
@@ -818,7 +822,7 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
           if(item3.colGroup) return;
 
           //td内容
-          var td = ['<td data-field="'+ field +'" data-key="'+ key + '" data-index="'+ item1['_id'] + '" '+ function(){ //追加各种属性
+          var td = ['<td data-field="'+ field +'" data-key="'+ key + '" data-v="' + content +'" data-index="'+ item1['_id'] + '" '+ function(){ //追加各种属性
             var attr = [];
             if(item3.edit) attr.push('data-edit="'+ item3.edit +'"'); //是否允许单元格编辑
             if(item3.align) attr.push('align="'+ item3.align +'"'); //对齐方式
