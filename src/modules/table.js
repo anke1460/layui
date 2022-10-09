@@ -87,13 +87,22 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
     if (!item3.templet && omit == undefined) {
       var str = str.toString();
       if (isNaN(str) == false && options.decimals_length && str.length > options.decimals_length) {
-        str = Number(str).toFixed(options.decimals_length+1)
+        // str = Number(str).toFixed(options.decimals_length+1)
         var strIndex = str.indexOf('.');
         if (strIndex > -1) {
           str = str.substring(0, strIndex + options.decimals_length +1);
           var zero = new Array(options.decimals_length +1).join("0")
           if (str == "0."+ zero) {
             str = "<0." + (new Array(options.decimals_length).join("0")) + "1"
+          }
+          if (str.slice(-1) == '0' && str.length > 2 && str.slice(-2) != '.0') {
+            str = str.slice(0, -1);
+          }
+          if (str == '0.0') {
+            str = 0;
+          }
+          if (str.slice(-2) == '.0') {
+            str = str.slice(0, -2);
           }
         }
       }
