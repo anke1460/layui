@@ -87,7 +87,7 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
     if (!item3.templet && omit == undefined) {
       var str = str.toString();
       if (isNaN(str) == false && options.decimals_length && str.length > options.decimals_length) {
-        // str = Number(str).toFixed(options.decimals_length+1)
+        str = Number(str).toFixed(options.decimals_length)
         var strIndex = str.indexOf('.');
         if (strIndex > -1) {
           str = str.substring(0, strIndex + options.decimals_length +1);
