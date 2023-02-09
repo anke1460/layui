@@ -86,10 +86,16 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
     }() : content;
     if (!item3.templet && omit == undefined) {
       var str = str.toString();
+      var old_str = str;
       if (isNaN(str) == false && options.decimals_length && str.length > options.decimals_length) {
-        str = Number(str).toFixed(options.decimals_length)
+        if (old_str.indexOf('e') > -1 || old_str.indexOf('E') > -1 ) {
+          // 科学计算法
+          str = Number(str).toFixed(options.decimals_length);
+        }
+
         var strIndex = str.indexOf('.');
         if (strIndex > -1) {
+          str = Number(str).toFixed(options.decimals_length);
           str = str.substring(0, strIndex + options.decimals_length +1);
           var zero = new Array(options.decimals_length +1).join("0")
           if (str == "0."+ zero) {
