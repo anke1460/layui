@@ -146,7 +146,7 @@ layui.define(function(exports){
       }()
 
       //数据总数
-      ,count: '<span class="layui-laypage-count">共 '+ config.count +' 条</span>'
+      ,count: '<span class="layui-laypage-count">' + i18n('total') + ' '+ config.count +' ' + i18n('entries') + '</span>'
 
       //每页条数
       ,limit: function(){
@@ -155,7 +155,7 @@ layui.define(function(exports){
           options.push(
             '<option value="'+ item +'"'
             +(item === config.limit ? 'selected' : '')
-            +'>'+ item +' 条/页</option>'
+            +'>'+ item +' ' + i18n('entries_page') +'</option>'
           );
         });
         return options.join('') +'</select></span>';
@@ -168,9 +168,9 @@ layui.define(function(exports){
 
       //跳页区域
       ,skip: function(){
-        return ['<span class="layui-laypage-skip">&#x5230;&#x7B2C;'
+        return ['<span class="layui-laypage-skip">' + i18n('go')
           ,'<input type="text" min="1" value="'+ config.curr +'" class="layui-input">'
-          ,'&#x9875;<button type="button" class="layui-laypage-btn">&#x786e;&#x5b9a;</button>'
+          ,i18n('page') + '<button type="button" class="layui-laypage-btn">' + i18n('ok') + '</button>'
         ,'</span>'].join('');
       }()
     };

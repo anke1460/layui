@@ -496,9 +496,9 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
     if(typeof options.defaultToolbar === 'object'){
       layui.each(options.defaultToolbar, function(i, item){
         var thisItem = typeof item === 'string' ? layout[item] : item;
-        if ( thisItem.title == '下载') {
+        if ( thisItem.title == '下载' || thisItem.title == 'Download') {
           if(thisItem){
-            iconElem.push('<div class="layui-inline" style="width:70px" title="'+ thisItem.title +'" lay-event="'+ thisItem.layEvent +'">'
+            iconElem.push('<div class="layui-inline" style="width:auto;" title="'+ thisItem.title +'" lay-event="'+ thisItem.layEvent +'">'
               +'<i class="layui-icon '+ thisItem.icon +'"></i>' +
               '<span>' + thisItem.title + '</span>'
             +'</div>');
