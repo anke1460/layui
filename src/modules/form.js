@@ -24,30 +24,30 @@ layui.define('layer', function(exports){
       verify: {
         required: [
           /[\S]+/
-          ,'必填项不能为空'
+          , i18n('required_fields_not_empty')
         ]
         ,phone: [
           /^1\d{10}$/
-          ,'请输入正确的手机号'
+          , i18n('phone_invalid')
         ]
         ,email: [
           /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
-          ,'邮箱格式不正确'
+          , i18n('email_invalid')
         ]
         ,url: [
           /^(#|(http(s?)):\/\/|\/\/)[^\s]+\.[^\s]+$/
-          ,'链接格式不正确'
+          , i18n('link_invalid')
         ]
         ,number: function(value){
-          if(!value || isNaN(value)) return '只能填写数字'
+          if(!value || isNaN(value)) return i18n('only_num')
         }
         ,date: [
           /^(\d{4})[-\/](\d{1}|0\d{1}|1[0-2])([-\/](\d{1}|0\d{1}|[1-2][0-9]|3[0-1]))*$/
-          ,'日期格式不正确'
+          , i18n('date_invalid')
         ]
         ,identity: [
           /(^\d{15}$)|(^\d{17}(x|X|\d)$)/
-          ,'请输入正确的身份证号'
+          , i18n('id_num_invalid')
         ]
       }
       ,autocomplete: null //全局 autocomplete 状态。null 表示不干预
